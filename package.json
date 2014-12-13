@@ -1,0 +1,47 @@
+{
+  "name": "counting",
+  "version": "0.0.0",
+  "author": "Alan Plum <me@pluma.io>",
+  "description": "Minimalist listenable actions.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pluma/counting.git"
+  },
+  "keywords": [
+    "count",
+    "counter",
+    "counting",
+    "function",
+    "call",
+    "invoke",
+    "inject"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "coveralls": "^2.11.2",
+    "expect.js": "^0.3.1",
+    "istanbul": "^0.3.2",
+    "jshint": "^2.5.6",
+    "mocha": "^2.0.1",
+    "uglify-js": "^2.4.15"
+  },
+  "main": "./index.js",
+  "scripts": {
+    "lint": "jshint index.js test",
+    "test": "mocha --growl -R spec",
+    "prepublish": "npm run cover && npm run dist",
+    "cover": "npm run lint && istanbul cover --report lcov _mocha -- -R spec",
+    "coveralls": "npm run cover && cat ./coverage/lcov.info | coveralls ; rm -rf ./coverage",
+    "dist": "npm run cjs-min; npm run globals-min; npm run amd-min",
+    "cjs": "cp index.js dist/counting.js",
+    "cjs-min": "npm run cjs; uglifyjs dist/counting.js > dist/counting.min.js",
+    "globals": "cat templates/globals.before index.js templates/globals.after > dist/counting.globals.js",
+    "globals-min": "npm run globals; uglifyjs dist/counting.globals.js > dist/counting.globals.min.js",
+    "amd": "cat templates/amd.before index.js templates/amd.after > dist/counting.amd.js",
+    "amd-min": "npm run amd; uglifyjs dist/counting.amd.js > dist/counting.amd.min.js"
+  },
+  "engines": {
+    "node": ">=0.6"
+  }
+}

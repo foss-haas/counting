@@ -1,0 +1,7 @@
+coverage/
+dist/
+templates/
+test/
+.travis.yml
+.jshintrc
+component.json
