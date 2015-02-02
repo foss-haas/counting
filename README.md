@@ -76,6 +76,10 @@ var countingLogger = counting(function (i, str) {
     console.log(i, str);
 });
 
+var countingDown = counting(10, -1, function (i, str) {
+    console.log(i, str);
+});
+
 countingLogger('Hello World');
 // 0 Hello World
 countingLogger('Lorem ipsum');
@@ -83,11 +87,23 @@ countingLogger('Lorem ipsum');
 countingLogger.count += 1;
 countingLogger('Dolor sit amet');
 // 3 Dolor sit amet
+
+countingDown('...');
+// 10 ...
+countingDown('...');
+// 9 ...
+countingDown.count = 2;
+countingDown('...');
+// 2 ...
+countingDown('...');
+// 1 ...
+countingDown('Lift off!');
+// 0 Lift off!
 ```
 
 # API
 
-## counting([offset,] fn):Function
+## counting([offset, [increment,]] fn):Function
 
 Creates a wrapper for the given function initialised to `offset` or `0` if no offset is provided.
 
@@ -95,11 +111,15 @@ Creates a wrapper for the given function initialised to `offset` or `0` if no of
 
 Passes the current count and the given arguments to the wrapped function and returns the function's return value.
 
-Increments the count by `1` each time it is called.
+Increments the count by the `increment` or `1` if no increment was provided, each time it is called.
 
 ## wrapper.count:int
 
 The current count of the wrapper.
+
+## wrapper.increment:int
+
+The increment of the wrapper.
 
 # License
 

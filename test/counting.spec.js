@@ -36,6 +36,22 @@ describe('counting', function () {
       expect(wrapper()).to.equal(1);
       expect(wrapper()).to.equal(2);
     });
+    it('offsets the count by the given offset', function () {
+      var wrapper = counting(20, function (count) {
+        return count;
+      });
+      expect(wrapper()).to.equal(20);
+      expect(wrapper()).to.equal(21);
+      expect(wrapper()).to.equal(22);
+    });
+    it('increments the count with the given increment', function () {
+      var wrapper = counting(0, -1, function (count) {
+        return count;
+      });
+      expect(wrapper()).to.equal(0);
+      expect(wrapper()).to.equal(-1);
+      expect(wrapper()).to.equal(-2);
+    });
     it('exposes the current count as an attribute', function () {
       var wrapper = counting(function (count) {
         return count;
