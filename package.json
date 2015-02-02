@@ -1,6 +1,6 @@
 {
   "name": "counting",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Alan Plum <me@pluma.io>",
   "description": "Minimalist listenable actions.",
   "license": "MIT",
