@@ -4,8 +4,16 @@ Helper function for consuming iterables with a running count, for those cases
 where you want a counter variable but don't feel like using a for-loop or
 callback function.
 
+[![license - MIT](https://img.shields.io/npm/l/counting.svg)](https://foss-haas.mit-license.org)
+
+[![NPM status](https://nodei.co/npm/counting.png)](https://npmjs.org/package/counting)
+
 ```js
 import { counting } from "counting";
+
+// - or -
+
+const { counting } = require("counting");
 ```
 
 ## API
