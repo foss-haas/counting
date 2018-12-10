@@ -1,47 +1,27 @@
 {
   "name": "counting",
-  "version": "1.1.1",
+  "version": "2.0.0",
+  "description": "Counting",
+  "repository": "git@github.com:foss-haas/counting.git",
   "author": "Alan Plum <me@pluma.io>",
-  "description": "Makes function calls count.",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pluma/counting.git"
-  },
-  "keywords": [
-    "count",
-    "counter",
-    "counting",
-    "function",
-    "call",
-    "invoke",
-    "inject"
+  "main": "build/index.js",
+  "typings": "build/index.d.ts",
+  "files": [
+    "build/index.js",
+    "build/index.d.ts",
+    "LICENSE"
   ],
-  "dependencies": {},
-  "devDependencies": {
-    "coveralls": "^2.11.2",
-    "expect.js": "^0.3.1",
-    "istanbul": "^0.3.2",
-    "jshint": "^2.5.6",
-    "mocha": "^2.0.1",
-    "uglify-js": "^2.4.15"
-  },
-  "main": "./index.js",
   "scripts": {
-    "lint": "jshint index.js test",
-    "test": "mocha --growl -R spec",
-    "prepublish": "npm run cover && npm run dist",
-    "cover": "npm run lint && istanbul cover --report lcov _mocha -- -R spec",
-    "coveralls": "npm run cover && cat ./coverage/lcov.info | coveralls ; rm -rf ./coverage",
-    "dist": "npm run cjs-min; npm run globals-min; npm run amd-min",
-    "cjs": "cp index.js dist/counting.js",
-    "cjs-min": "npm run cjs; uglifyjs dist/counting.js > dist/counting.min.js",
-    "globals": "cat templates/globals.before index.js templates/globals.after > dist/counting.globals.js",
-    "globals-min": "npm run globals; uglifyjs dist/counting.globals.js > dist/counting.globals.min.js",
-    "amd": "cat templates/amd.before index.js templates/amd.after > dist/counting.amd.js",
-    "amd-min": "npm run amd; uglifyjs dist/counting.amd.js > dist/counting.amd.min.js"
+    "build": "tsc",
+    "test": "jest"
   },
-  "engines": {
-    "node": ">=0.6"
+  "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.3",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.11.0",
+    "typescript": "^3.2.2"
   }
 }

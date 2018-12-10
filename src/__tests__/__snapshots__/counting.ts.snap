@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`works with arbitrary generators 1`] = `
+Array [
+  Array [
+    0,
+    "a",
+  ],
+  Array [
+    1,
+    Object {
+      "hello": "world",
+    },
+  ],
+  Array [
+    2,
+    Array [
+      "hey",
+      "yes",
+      "you",
+    ],
+  ],
+  Array [
+    3,
+    true,
+  ],
+  Array [
+    4,
+    null,
+  ],
+  Array [
+    5,
+    undefined,
+  ],
+  Array [
+    6,
+    123,
+  ],
+]
+`;
